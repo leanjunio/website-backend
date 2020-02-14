@@ -12,4 +12,15 @@ router.get('/', async (req, res, next) => {
   res.json(info);
 });
 
+router.post('/', async (req, res) => {
+  console.log('reached');
+  let obj;
+  try {
+    obj = await Info.create({ summary: 'some desc' });
+  } catch (err) {
+    console.error(err);
+  }
+  res.json(obj);
+});
+
 module.exports = router;

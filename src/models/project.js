@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const technologySchema = require('../schemas/technology');
 
 // github, link, and image are links
 // images are stored locally
@@ -8,7 +7,7 @@ const projectSchema = mongoose.Schema({
   github: String,
   link: String,
   image: String,
-  technology: [technologySchema],
+  technology: [String],
 });
 
 module.exports = mongoose.model('project', projectSchema);
