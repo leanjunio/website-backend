@@ -7,6 +7,9 @@ const experienceSchema = mongoose.Schema({
   location: String,
   desc: String,
   duration: String,
+  type: String,
+  start: Date,
+  end: Date,
 });
 
 module.exports = mongoose.model('experience', experienceSchema);
