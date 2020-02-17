@@ -5,7 +5,4 @@ const profileRoutes = require('./profileRoutes');
 
 module.exports = app => {
   app.use('/profile', profileRoutes);
-  app.use('/info', infoRoutes);
-  app.use('/experience', experienceRoutes);
-  app.use('/project', projectRoutes);
 };
