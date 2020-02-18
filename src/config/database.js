@@ -9,7 +9,10 @@ const config = {
 // Create a mongoDB connection URI string
 // append URI string to config object
 let uri = 'mongodb://';
-if (config.USER && config.PASSWORD) {
+
+if (process.env.DB_URI) {
+  uri = process.env.DB_URI;
+} else if (config.USER && config.PASSWORD) {
   uri += `${config.USER}:${config.PASSWORD}@`;
   uri += `${config.HOST}:${config.PORT}/${config.NAME}`;
 }
