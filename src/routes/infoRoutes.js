@@ -13,7 +13,6 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log('reached');
   let obj;
   try {
     obj = await Info.create({ summary: 'some desc' });
