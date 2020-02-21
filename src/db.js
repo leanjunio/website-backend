@@ -5,7 +5,6 @@ module.exports = {
   connect: async () => {
     await mongoose.connect(config.DB.URI, {
       useNewUrlParser: true,
-      useUnifiedTopology: true,
       keepAlive: true,
     });
     mongoose.connection.on('error', err => console.error(err));
