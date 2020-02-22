@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const projectSchema = mongoose.Schema({
   name: String,
   github: String,
+  desc: String,
   link: String,
   image: String,
   technology: [String],
