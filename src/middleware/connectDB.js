@@ -15,8 +15,8 @@ module.exports = async (req, res, next) => {
     }
   };
 
-  // res.on('finish', afterResponse);
-  // res.on('close', afterResponse);
+  res.on('finish', afterResponse);
+  res.on('close', afterResponse);
 
   next();
 };

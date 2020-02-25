@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/wwww.js",
   "scripts": {
-    "start": "nodemon ./src/www.js"
+    "start": "NODE_ENV=production node ./src/www.js",
+    "dev": "NODE_ENV=development nodemon ./src/www.js"
   },
   "keywords": [],
   "author": "",
