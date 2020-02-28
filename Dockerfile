@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Run the command inside your image filesystem
+RUN npm install pm2 -g
 RUN npm install
 
 # Copy the rest of your app's source code from your host to your image filesystem.
