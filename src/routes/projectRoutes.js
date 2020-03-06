@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 router.get('/website', async (req, res, next) => {
   let websiteProject;
   try {
-    websiteProject = await Project.findOne({ name: 'website' });
+    websiteProject = await Project.findOne({ name: 'leanjunio.com' });
   } catch (error) {
     return next(error);
   }
