@@ -1,11 +1,11 @@
 # Use the official image as a parent image
-FROM node:latest
+FROM node:alpine
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy the file from your host to your current location
-COPY package*.json ./
+COPY package.json .
 
 # Run the command inside your image filesystem
 RUN npm install pm2 -g
@@ -18,4 +18,4 @@ COPY . .
 EXPOSE 3000
 
 # Run the specified command within the container.
-CMD [ "npm", "start" ]
+CMD npm start
