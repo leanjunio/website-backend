@@ -5,11 +5,16 @@ services:
     build: .
     ports:
       - '8080:3000'
-    links:
+    depends_on:
       - db
   db:
     image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: leanjunio
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: portfolio
     volumes:
-      - ./data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     ports:
       - '27017:27017'
+    command: mongod
