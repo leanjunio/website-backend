@@ -10,5 +10,5 @@ module.exports = {
     });
     mongoose.connection.on('error', err => console.error(err));
   },
-  close: async () => await mongoose.connection.close(),
+  close: async () => await mongoose.disconnect(),
 };
