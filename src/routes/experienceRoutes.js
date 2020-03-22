@@ -7,10 +7,10 @@ router.get('/', async (req, res, next) => {
   try {
     experiences = await Experience.find({}).lean();
     experiences = experiences.sort((a, b) => b.start - a.start);
+    res.json(experiences);
   } catch (error) {
     return next(error);
   }
-  res.json(experiences);
 });
 
 module.exports = router;

@@ -6,10 +6,10 @@ router.get('/', async (req, res, next) => {
   let info;
   try {
     info = await Info.find({});
+    res.json(info);
   } catch (error) {
     return next(error);
   }
-  res.json(info);
 });
 
 module.exports = router;
