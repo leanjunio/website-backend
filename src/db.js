@@ -12,5 +12,5 @@ module.exports = {
     });
     mongoose.connection.on('error', err => Sentry.captureException(err));
   },
-  close: async () => await mongoose.disconnect(() => console.log('Disconnecting Mongoose')),
+  close: () => mongoose.connection.close(() => console.log('Mongoose disconnected')),
 };

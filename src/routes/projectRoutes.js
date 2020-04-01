@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
     res.status(httpStatus.OK).json(projects);
   } catch (error) {
     Sentry.captureException(error);
-    next(error);
+    return next(error);
   }
 });
 
@@ -23,7 +23,7 @@ router.get('/website', async (req, res, next) => {
     res.status(httpStatus.OK).json(websiteProject);
   } catch (error) {
     Sentry.captureException(error);
-    next(error);
+    return next(error);
   }
 });
 
