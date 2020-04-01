@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const Sentry = require('@sentry/node');
+
 const config = require('./config');
 
 module.exports = {
@@ -8,7 +10,7 @@ module.exports = {
       useUnifiedTopology: true,
       keepAlive: true,
     });
-    mongoose.connection.on('error', err => console.error(err));
+    mongoose.connection.on('error', err => Sentry.captureException(err));
   },
-  close: async () => await mongoose.disconnect(),
+  close: async () => await mongoose.disconnect(() => console.log('Disconnecting Mongoose')),
 };

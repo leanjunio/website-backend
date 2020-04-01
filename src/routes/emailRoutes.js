@@ -1,5 +1,8 @@
 const { Router } = require('express');
 const sgMail = require('@sendgrid/mail');
+const httpStatus = require('http-status-codes');
+const Sentry = require('@sentry/node');
+
 const router = Router();
 
 router.post('/', (req, res, next) => {
@@ -18,8 +21,11 @@ router.post('/', (req, res, next) => {
 
     sgMail
       .send(msg)
-      .then(() => res.status(200).send('email success'))
-      .catch(err => res.status(500).send(err));
+      .then(() => res.status(httpStatus.OK).send('email success'))
+      .catch(err => {
+        Sentry.captureException(err);
+        next(err);
+      });
   }
 });
 

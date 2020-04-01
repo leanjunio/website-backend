@@ -1,14 +1,17 @@
 const { Router } = require('express');
+const httpStatus = require('http-status-codes');
+const Sentry = require('@sentry/node');
+
 const Info = require('../models/info');
 const router = Router();
 
 router.get('/', async (req, res, next) => {
-  let info;
   try {
-    info = await Info.find({});
-    res.json(info);
+    const info = await Info.find({});
+    res.status(httpStatus.OK).json(info);
   } catch (error) {
-    return next(error);
+    Sentry.captureException(error);
+    next(error);
   }
 });
 
