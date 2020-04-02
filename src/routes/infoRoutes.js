@@ -7,7 +7,7 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const info = await Info.find({});
+    const info = await Info.find({}).lean();
     res.status(httpStatus.OK).json(info);
   } catch (error) {
     Sentry.captureException(error);

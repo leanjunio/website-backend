@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const mongoose = require('mongoose');
 const httpStatus = require('http-status-codes');
 const Sentry = require('@sentry/node');
 
@@ -9,7 +8,7 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    let projects = await Project.find({});
+    let projects = await Project.find({}).lean();
     res.status(httpStatus.OK).json(projects);
   } catch (error) {
     Sentry.captureException(error);
@@ -19,7 +18,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/website', async (req, res, next) => {
   try {
-    let websiteProject = await Project.findOne({ name: 'leanjunio.com' });
+    let websiteProject = await Project.findOne({ name: 'leanjunio.com' }).lean();
     res.status(httpStatus.OK).json(websiteProject);
   } catch (error) {
     Sentry.captureException(error);
