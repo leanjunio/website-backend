@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig",
+    "compilerOptions": {
+      "sourceMap": true,
+      "inlineSources": true,
+      "sourceRoot": "/"
+    }
+}
+
+// when you want to run the production build, which will then upload, you specify this specific config, e.g., tsc -p tsconfig.production.json
