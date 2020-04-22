@@ -27,7 +27,7 @@ The reason I divided my backend and my frontend is to allow the frontend and the
 
 ## Description
 
-This website as a whole (including the frontend [frontend](https://github.com/leanjunio/website-frontend)) is built with an MVC architecture. I chose an MVC architecture because I found that it's the best architecture for what I have at the moment. I will most likely move towards another architecture such as Microservices when the time comes for it to be more suitable for my needs.
+This website as a whole (including the [frontend](https://github.com/leanjunio/website-frontend)) is built with an MVC architecture. I chose an MVC architecture because I found that it's the best architecture for what I have at the moment. I will most likely move towards another architecture such as Microservices when the time comes for it to be more suitable for my needs.
 
 On top of having an MVC architecture, my website also utilizes the containerization technology: **Docker** and the **Nginx** web server.
 
