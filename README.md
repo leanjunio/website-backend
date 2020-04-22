@@ -37,7 +37,20 @@ I use Docker in order to get over the hump of running an application in differen
 
 #### **Why are you using NGINX?**
 
-Since Docker allows me to run specific containers in a specific port, I then utilize **Nginx** to direct traffic from a specific endpoint to Docker's assigned port. 
+Since Docker allows me to run specific containers in a specific port, I then utilize **Nginx** to direct traffic from a specific endpoint to Docker's assigned port.
 
-![Browser to Docker](https://github.com/leanjunio/website-backend/blob/master/screenshots/browser-nginx-docker.png "Browser to Docker diagram")
+![Browser to Docker](https://github.com/leanjunio/website-backend/blob/master/screenshots/browser-nginx-docker.png 'Browser to Docker diagram')
 
+In Nginx's config file:
+
+```config
+server {
+  server_name leanjunio.com www.leanjunio.com;
+
+  location /api {
+    
+    <!-- backend runs in http://127.0.0.1:3000 -->
+    proxy_pass http://127.0.0.1:3000; 
+  }
+}
+```
